@@ -1,6 +1,7 @@
 package com.gabrieljonathan.workshopmongo.dto;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import com.gabrieljonathan.workshopmongo.domain.User;
 
@@ -18,6 +19,13 @@ public class UserDTO implements Serializable{
 			id = obj.getId();
 			name = obj.getName();
 			email = obj.getEmail();
+		}
+		
+		public UserDTO(Optional<User> obj) {
+			
+			id = obj.get().getId();
+			name = obj.get().getName();
+			email = obj.get().getEmail();
 		}
 
 		public String getId() {
