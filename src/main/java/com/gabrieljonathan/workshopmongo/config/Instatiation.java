@@ -43,6 +43,10 @@ public class Instatiation implements CommandLineRunner{
 		
 		postRepository.save(pst1);
 		
+		maria.getPosts().add(pst1);
+		
+		userRepository.save(maria);
+		
 	}
 
 }
