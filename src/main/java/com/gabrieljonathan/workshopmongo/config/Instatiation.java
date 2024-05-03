@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.gabrieljonathan.workshopmongo.domain.Post;
 import com.gabrieljonathan.workshopmongo.domain.User;
 import com.gabrieljonathan.workshopmongo.dto.AuthorDTO;
+import com.gabrieljonathan.workshopmongo.dto.CommentDTO;
 import com.gabrieljonathan.workshopmongo.repositories.PostRepository;
 import com.gabrieljonathan.workshopmongo.repositories.UserRepository;
 
@@ -40,6 +41,10 @@ public class Instatiation implements CommandLineRunner{
 		
 		Post pst1 = new Post(null,sdf.parse("19/11/2018"),"Data Comemorativa", "Esse dia foi o dia mais importante para o desenvolvedor desta aplicação", new AuthorDTO(maria));
 		
+		CommentDTO c1 = new CommentDTO("Já fazem 5 anos!",sdf.parse("03/05/2024"), new AuthorDTO(bob));
+		CommentDTO c2 = new CommentDTO("Que boa notícia de grande alegria!",sdf.parse("03/05/2024"), new AuthorDTO(alex));
+		
+		pst1.getCommnets().addAll(Arrays.asList(c1,c2));
 		
 		postRepository.save(pst1);
 		
